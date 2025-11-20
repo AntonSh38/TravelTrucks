@@ -1,0 +1,60 @@
+.article {
+  border: 1px solid #dadde1;
+  border-radius: 20px;
+  padding: 24px;
+  width: 888px;
+  height: 368px;
+  background: #fff;
+
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.imagecar {
+  border-radius: 10px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: #101828;
+  margin-bottom: 8px;
+}
+
+.textlocation {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #101828;
+}
+
+.textprice {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: #101828;
+}
+
+.btnshowmore {
+  border-radius: 200px;
+  padding: 16px;
+  width: 166px;
+  height: 56px;
+  background: #e44848;
+  border: none;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.btnshowmore:hover,
+.btnshowmore:focus {
+  background: #d84343;
+  cursor: pointer;
+}
