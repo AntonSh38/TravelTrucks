@@ -1,0 +1,46 @@
+.wrap {
+  width: 527px;
+}
+
+.featuresGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  /* margin-bottom: auto; */
+}
+
+.featureItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 90px;
+
+  transition: all 0.2s ease;
+
+  border-radius: 100px;
+  padding: 12px 18px;
+  height: 48px;
+
+  background: #f2f4f7;
+  mix-blend-mode: multiply;
+}
+
+.featureItem:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.featureIcon {
+  fill: white;
+}
+
+.featureItem span {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #101828;
+}

@@ -12,9 +12,14 @@ export const getCampers = async (
   return res.data.items ?? [];
 };
 
-export const getCamperById = async (id: string): Promise<Camper> => {
-  const res = await api.get<Camper>(`/campers/${id}`);
-  return res.data;
+export const getCamperById = async (id: string): Promise<Camper | null> => {
+  try {
+    const res = await api.get<Camper>(`/campers/${id}`);
+    return res.data;
+  } catch (error) {
+    console.error(`Error fetching camper ${id}:`, error);
+    return null;
+  }
 };
 
 export const getCampersPaginated = async (

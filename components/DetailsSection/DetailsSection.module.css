@@ -1,0 +1,46 @@
+.detailsBlock {
+  width: 527px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  margin-bottom: 24px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #dadde1;
+  margin-bottom: 24px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #101828;
+}
+
+.value {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #101828;
+}

@@ -1,0 +1,52 @@
+.tabs {
+  width: 100%;
+}
+
+.tabList {
+  display: flex;
+  gap: 40px;
+  border-bottom: 1px solid #dadde1;
+  padding-bottom: 24px;
+  margin-bottom: 44px;
+}
+
+.tab {
+  background: none;
+  border: none;
+
+  color: #8a8a8a;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.tab:hover {
+  color: #101828;
+}
+
+.tab.active {
+  color: #101828;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -26px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #e04e4e;
+  border-radius: 2px;
+}
+
+.tabContent {
+  /* просто контейнер */
+}
+
+.tabPanel {
+  /* контент табу */
+}

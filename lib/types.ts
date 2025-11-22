@@ -29,8 +29,8 @@ export interface Camper {
   height: string;
   tank: string;
   consumption: string;
-  transmission: string;
-  engine: string;
+  transmission: 'automatic' | 'manual';
+  engine: 'petrol' | 'diesel' | 'hybrid';
   AC: boolean;
   bathroom: boolean;
   kitchen: boolean;
@@ -68,3 +68,8 @@ export interface BookingFormData {
   to: string;
   message?: string;
 }
+
+export type CampersResponse = {
+  total: number;
+  items: Camper[];
+};

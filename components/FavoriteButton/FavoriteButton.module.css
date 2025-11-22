@@ -1,0 +1,40 @@
+.button {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #dadde1;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.button.active .icon {
+  color: white !important;
+}
+
+.icon {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.button.active .icon {
+  transform: scale(1.2);
+  animation: heartbeat 0.6s ease-in-out;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
