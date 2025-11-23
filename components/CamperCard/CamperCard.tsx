@@ -81,8 +81,8 @@ export default function CamperCard({ camper }: { camper: Camper }) {
         </div>
 
         <p className={css.description}>
-          {camper.description.length > 100
-            ? camper.description.slice(0, 100) + '...'
+          {camper.description.length > 60
+            ? camper.description.slice(0, 60) + '...'
             : camper.description}
         </p>
 

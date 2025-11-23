@@ -9,6 +9,7 @@ import Tabs from '@/components/Tabs/Tabs';
 import { getCamperById } from '@/lib/api';
 import { notFound } from 'next/navigation';
 import css from './pageid.module.css';
+import SvgIcon from '@/components/SvgIcon/SvgIcon';
 
 type Props = { params: { id: string } };
 
@@ -26,13 +27,21 @@ export default async function CamperDetailPage({ params }: Props) {
 
   return (
     <div>
-      <header>
-        <h1>{camper.name}</h1>
-        <p>{camper.location}</p>
-        <p>{(camper.price ?? 0).toFixed(2)}</p>
-        <RatingStars reviews={camper.reviews ?? []} />
-      </header>
-      <Gallery images={camper.gallery ?? []} />
+      <section className={css.section}>
+        <h1 className={css.title}>{camper.name}</h1>
+        <div className={css.info}>
+          <RatingStars reviews={camper.reviews ?? []} />
+          <div className={css.location}>
+            <SvgIcon name="icon-Map" size={16} color="#484848" />
+            <span>{camper.location}</span>
+          </div>
+        </div>
+
+        <p className={css.price}>€{camper.price.toFixed(2)}</p>
+        <Gallery images={camper.gallery ?? []} />
+
+        <p className={css.description}>{camper.description}</p>
+      </section>
 
       <aside className={css.wrap}>
         <div>

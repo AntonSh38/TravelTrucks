@@ -2,32 +2,25 @@
 
 import { GalleryItem } from '@/lib/types';
 import Image from 'next/image';
-import { useState } from 'react';
+
+import css from './Gallery.module.css';
 
 export default function Gallery({ images }: { images: GalleryItem[] }) {
-  const [active, setActive] = useState<number>(0);
-
   if (!images || images.length === 0) {
     return <div>No images</div>;
   }
   return (
-    <section>
+    <section className={css.section}>
       <div>
-        <Image
-          src={images[active].original}
-          alt={`image-${active}`}
-          width={600}
-          height={400}
-        />
-        <div>
+        <div className={css.wrap}>
           {images.map((img, i) => (
             <Image
+              className={css.img}
               key={i}
-              src={img.thumb}
+              src={img.original}
               alt={`thumb-${i}`}
-              width={100}
-              height={70}
-              onClick={() => setActive(i)}
+              width={292}
+              height={312}
             />
           ))}
         </div>
