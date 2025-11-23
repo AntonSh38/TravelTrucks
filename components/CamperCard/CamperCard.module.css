@@ -33,7 +33,6 @@
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   flex: 1;
 }
 
@@ -93,7 +92,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 24px;
+  margin-bottom: auto;
 }
 
 .feature {
