@@ -18,7 +18,7 @@ export default function Gallery({ images }: { images: GalleryItem[] }) {
               className={css.img}
               key={i}
               src={img.original}
-              alt={`thumb-${i}`}
+              alt={`original-${i}`}
               width={292}
               height={312}
             />
