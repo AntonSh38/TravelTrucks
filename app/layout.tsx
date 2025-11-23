@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header/Header';
-import css from '@/app/layout.module.css';
 
 const interFont = Inter({
   variable: '--font-inter',
@@ -25,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${interFont.variable}`}>
         <Header />
-        <main className={css.main}>{children}</main>
+        <main>{children}</main>
       </body>
     </html>
   );

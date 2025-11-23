@@ -45,7 +45,7 @@
 .wrap {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 48px;
 
   margin-bottom: 80px;
 }
