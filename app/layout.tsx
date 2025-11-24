@@ -13,6 +13,9 @@ const interFont = Inter({
 export const metadata: Metadata = {
   title: 'TravelTrucks',
   description: 'Camper rental platform',
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
