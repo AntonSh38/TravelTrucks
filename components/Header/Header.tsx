@@ -1,20 +1,40 @@
+'use client';
+
 import Link from 'next/link';
 import css from './Header.module.css';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
+  const pathname = usePathname();
+
+  const isHomeActive = pathname === '/';
+  const isCatalogActive = pathname.startsWith('/catalog');
+
   return (
     <header className={css.header}>
       <div className={css.wrapperlogo}>
         <Link href="/">
-          <Image src="/logo.svg" alt="Logo" width={136} height={15} />
+          <Image
+            src="/logo.svg"
+            alt="TravelTrucks Logo"
+            width={136}
+            height={15}
+            priority
+          />
         </Link>
       </div>
       <nav className={css.nav}>
-        <Link href="/" className={css.navlink}>
+        <Link
+          href="/"
+          className={`${css.navlink} ${isHomeActive ? css.active : ''}`}
+        >
           Home
         </Link>
-        <Link href="/catalog" className={css.navlink}>
+        <Link
+          href="/catalog"
+          className={`${css.navlink} ${isCatalogActive ? css.active : ''}`}
+        >
           Catalog
         </Link>
       </nav>
