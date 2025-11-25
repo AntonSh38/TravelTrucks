@@ -9,7 +9,7 @@ export default function Header() {
   const pathname = usePathname();
 
   const isHomeActive = pathname === '/';
-  const isCatalogActive = pathname.startsWith('/catalog');
+  const isCatalogActive = pathname === '/catalog';
 
   return (
     <header className={css.header}>
