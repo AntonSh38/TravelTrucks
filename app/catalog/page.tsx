@@ -4,73 +4,100 @@ import { useCampersStore } from '@/store/useCampersStore';
 import { useEffect, useState } from 'react';
 import CamperCard from '@/components/CamperCard/CamperCard';
 import FiltersPanel from '@/components/FiltersPanel/FiltersPanel';
-import { getCampers } from '@/lib/api';
+import { getCampersPaginated } from '@/lib/api';
 import { Filters } from '@/lib/types';
 import css from './page.module.css';
 
 export default function CatalogPage() {
   const campers = useCampersStore(s => s.campers);
+  const total = useCampersStore(s => s.total) ?? 0;
   const page = useCampersStore(s => s.page);
   const limit = useCampersStore(s => s.limit);
   const filters = useCampersStore(s => s.filters);
+
   const setCampers = useCampersStore(s => s.setCampers);
   const appendCampers = useCampersStore(s => s.appendCampers);
   const resetCampers = useCampersStore(s => s.resetCampers);
   const setPage = useCampersStore(s => s.setPage);
 
-  const [loading, setLoading] = useState(false);
+  const [loadingInitial, setLoadingInitial] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
     const load = async () => {
-      setLoading(true);
+      if (page === 1) {
+        setLoadingInitial(true);
+      } else {
+        setLoadingMore(true);
+      }
+
       try {
-        const params: Record<string, string | number | boolean> = {
+        const params = {
           page,
           limit,
           ...filters,
         };
-        const data = await getCampers(params);
+        const { items, total } = await getCampersPaginated(params);
         if (cancelled) return;
-        if (page === 1) setCampers(data);
-        else appendCampers(data);
+        if (page === 1) {
+          setCampers(items, total);
+        } else {
+          appendCampers(items);
+        }
       } catch (e) {
         console.error(e);
       } finally {
-        if (!cancelled) setLoading(false);
+        if (!cancelled) {
+          setLoadingInitial(false);
+          setLoadingMore(false);
+        }
       }
     };
+
     load();
     return () => {
       cancelled = true;
     };
-  }, [appendCampers, filters, limit, page, setCampers]);
+  }, [page, limit, filters, setCampers, appendCampers]);
 
-  const onApplyFilters = (
-    newFilters: Record<string, string | number | boolean>
-  ) => {
+  const onApplyFilters = (newFilters: Partial<Filters>) => {
     resetCampers();
-    useCampersStore.getState().setFilters(newFilters as unknown as Filters);
+    useCampersStore.getState().setFilters(newFilters as Filters);
     setPage(1);
   };
+
   const loadMore = () => setPage(page + 1);
+
+  const showLoadMore =
+    campers.length < total &&
+    campers.length > 0 &&
+    !loadingInitial &&
+    !loadingMore;
 
   return (
     <div>
       <div className={css.wrapper}>
         <FiltersPanel initial={filters} onApply={onApplyFilters} />
         <section>
-          {campers.length === 0 && !loading && <p>No results</p>}
-          {Array.isArray(campers) &&
-            campers.map(camper => (
-              <CamperCard key={camper.id} camper={camper} />
-            ))}
+          {campers.length === 0 && !loadingInitial && <p>No results</p>}
+          {campers.map(camper => (
+            <CamperCard key={camper.id} camper={camper} />
+          ))}
         </section>
       </div>
 
-      <button className={css.btnloadmore} onClick={loadMore} disabled={loading}>
-        {loading ? 'Loading...' : 'Load More'}
-      </button>
+      {showLoadMore && (
+        <button className={css.btnloadmore} onClick={loadMore}>
+          Load More
+        </button>
+      )}
+
+      {loadingMore && (
+        <button className={css.btnloadmore} disabled>
+          Loading...
+        </button>
+      )}
     </div>
   );
 }

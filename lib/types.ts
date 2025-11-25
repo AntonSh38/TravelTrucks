@@ -1,6 +1,6 @@
 export interface ApiPaginatedResponse<T> {
   items: T[];
-  total?: number;
+  total: number;
   page?: number;
   limit?: number;
 }
