@@ -22,8 +22,7 @@ export default function FavoriteButton({ camperId }: Props) {
     >
       <SvgIcon
         name={isFavorite ? 'icon-heart-active' : 'icon-heart'}
-        size={26}
-        color={isFavorite ? '#e04e4e' : 'currentColor'}
+        color={isFavorite ? '#e44848' : '#101828'}
         className={css.icon}
       />
     </button>

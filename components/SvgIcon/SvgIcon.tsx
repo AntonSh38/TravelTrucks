@@ -12,7 +12,7 @@ type Props = {
 
 export default function SvgIcon({
   name,
-  size = 32,
+  size,
   color = 'currentColor',
   className = '',
   style,
