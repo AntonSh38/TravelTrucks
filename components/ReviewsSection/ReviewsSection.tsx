@@ -18,7 +18,7 @@ export default function ReviewsSection({ reviews }: Props) {
         {reviews.map((review, index) => {
           const firstLetter = review.reviewer_name.charAt(0).toUpperCase();
           return (
-            <li key={index} className={css.reviewItem}>
+            <li key={review.reviewer_name + index} className={css.reviewItem}>
               <div className={css.header}>
                 <div className={css.avatar}>
                   <span className={css.letter}>{firstLetter}</span>

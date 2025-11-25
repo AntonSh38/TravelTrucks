@@ -87,11 +87,8 @@ export default function CamperCard({ camper }: { camper: Camper }) {
         </p>
 
         <div className={css.features}>
-          {features.map(feature => (
-            <div
-              key={`${feature.icon}-${feature.label}`}
-              className={css.feature}
-            >
+          {features.map((feature, index) => (
+            <div key={index} className={css.feature}>
               <SvgIcon name={feature.icon} size={20} />
               <span>{feature.label}</span>
             </div>
