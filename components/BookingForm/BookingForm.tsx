@@ -62,12 +62,12 @@ export default function BookingForm({ camperId, price }: Props) {
         {({ setFieldValue, isSubmitting }) => (
           <Form className={css.form}>
             <div className={css.field}>
-              <Field name="name" placeholder="Name" className={css.input} />
+              <Field name="name" placeholder="Name*" className={css.input} />
               <ErrorMessage name="name" component="div" className={css.error} />
             </div>
 
             <div className={css.field}>
-              <Field name="email" placeholder="Email" className={css.input} />
+              <Field name="email" placeholder="Email*" className={css.input} />
               <ErrorMessage
                 name="email"
                 component="div"
@@ -83,7 +83,7 @@ export default function BookingForm({ camperId, price }: Props) {
                   setFieldValue('date', val);
                 }}
                 minDate={new Date()}
-                placeholderText="Booking date"
+                placeholderText="Booking date*"
                 dateFormat="dd MM yyyy"
                 className={css.input}
                 calendarClassName="custom-calendar"
