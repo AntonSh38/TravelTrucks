@@ -13,12 +13,12 @@ export default function Gallery({ images }: { images: GalleryItem[] }) {
     <section className={css.section}>
       <div>
         <div className={css.wrap}>
-          {images.map((img, i) => (
+          {images.map(img => (
             <Image
               className={css.img}
-              key={i}
+              key={img.original}
               src={img.original}
-              alt={`original-${i}`}
+              alt={img.original}
               width={292}
               height={312}
             />

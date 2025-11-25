@@ -37,7 +37,7 @@ export default function FeaturesSection({ camper }: Props) {
     { key: 'radio', icon: 'icon-radios', label: 'Radio' },
     { key: 'bathroom', icon: 'icon-shower', label: 'Bathroom' },
     { key: 'microwave', icon: 'icon-microwave', label: 'Microwave' },
-    { key: 'refrigerator', icon: 'iicon-fridge', label: 'Refrigerator' },
+    { key: 'refrigerator', icon: 'icon-fridge', label: 'Refrigerator' },
     { key: 'gas', icon: 'icon-gas', label: 'Gas' },
     { key: 'water', icon: 'icon-water', label: 'Water' },
     { key: 'engine', icon: 'icon-fuel-pump', label: engineLabel },
@@ -54,13 +54,8 @@ export default function FeaturesSection({ camper }: Props) {
             return null;
 
           return (
-            <li key={key} className={css.featureItem}>
-              <SvgIcon
-                name={icon}
-                size={24}
-                color="#050505ff"
-                className={css.featureIcon}
-              />
+            <li key={`${key}-${label}`} className={css.featureItem}>
+              <SvgIcon name={icon} size={24} className={css.featureIcon} />
               <span>{label}</span>
             </li>
           );

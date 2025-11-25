@@ -38,7 +38,7 @@ export default function DetailsSection({ camper }: Props) {
           const value = camper[key];
           if (!value) return null;
           return (
-            <li key={key} className={css.row}>
+            <li key={`${key}-${camper.id}`} className={css.row}>
               <span className={css.label}>{label}</span>
               <span className={css.value}>{formatValue(key, value)}</span>
             </li>

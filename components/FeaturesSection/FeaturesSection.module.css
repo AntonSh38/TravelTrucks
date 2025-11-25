@@ -15,7 +15,6 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  /* min-width: 90px; */
   width: auto;
 
   transition: all 0.2s ease;
@@ -31,10 +30,6 @@
 .featureItem:hover {
   background: #f0f0f0;
   transform: translateY(-2px);
-}
-
-.featureIcon {
-  fill: white;
 }
 
 .featureItem span {
