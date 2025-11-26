@@ -53,7 +53,7 @@ export default function CamperCard({ camper }: { camper: Camper }) {
   }
 
   return (
-    <article className={css.card}>
+    <section className={css.card}>
       <div className={css.imageWrapper}>
         <Image
           className={css.image}
@@ -101,6 +101,6 @@ export default function CamperCard({ camper }: { camper: Camper }) {
           </button>
         </Link>
       </div>
-    </article>
+    </section>
   );
 }

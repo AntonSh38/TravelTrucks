@@ -5,6 +5,7 @@ import Image from 'next/image';
 export default function Hero() {
   return (
     <section className={css.hero}>
+      <Image src="/Hero.avif" alt="hero" width={1440} height={696} priority />
       <div className={css.wrappercontext}>
         <h2 className={css.herotitle}>Campers of your dreams</h2>
         <p className={css.herotext}>
@@ -16,8 +17,6 @@ export default function Hero() {
           </button>
         </Link>
       </div>
-
-      <Image src="/Hero.avif" alt="hero" width={1440} height={696} priority />
     </section>
   );
 }

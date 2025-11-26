@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <header className={css.header}>
-      <div className={css.wrapperlogo}>
+      <div className={css.inner}>
         <Link href="/">
           <Image
             src="/logo.svg"
@@ -23,21 +23,22 @@ export default function Header() {
             priority
           />
         </Link>
+
+        <nav className={css.nav}>
+          <Link
+            href="/"
+            className={`${css.navlink} ${isHomeActive ? css.active : ''}`}
+          >
+            Home
+          </Link>
+          <Link
+            href="/catalog"
+            className={`${css.navlink} ${isCatalogActive ? css.active : ''}`}
+          >
+            Catalog
+          </Link>
+        </nav>
       </div>
-      <nav className={css.nav}>
-        <Link
-          href="/"
-          className={`${css.navlink} ${isHomeActive ? css.active : ''}`}
-        >
-          Home
-        </Link>
-        <Link
-          href="/catalog"
-          className={`${css.navlink} ${isCatalogActive ? css.active : ''}`}
-        >
-          Catalog
-        </Link>
-      </nav>
     </header>
   );
 }
