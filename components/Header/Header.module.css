@@ -1,12 +1,13 @@
 .header {
   display: flex;
   flex-direction: row;
+  /* align-items: center;
+  justify-content: start; */
   gap: 450px;
   padding: 24px 64px;
 
   background: #f7f7f7;
   width: 100vw;
-  margin-left: calc(-50vw + 50%);
 }
 
 .nav {
