@@ -35,7 +35,7 @@ export default function SvgIcon({
       aria-hidden="true"
       focusable="false"
     >
-      <use href={`/symbol-defs.svg#${name}`} />
+      <use href={`#${name}`} />
     </svg>
   );
 }

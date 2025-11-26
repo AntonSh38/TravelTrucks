@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header/Header';
+import Sprite from '@/components/Sprite/Sprite';
 
 const interFont = Inter({
   variable: '--font-inter',
@@ -26,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${interFont.variable}`}>
+        <Sprite />
         <Header />
         <main>{children}</main>
       </body>
