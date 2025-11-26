@@ -7,6 +7,7 @@ import FiltersPanel from '@/components/FiltersPanel/FiltersPanel';
 import { getCampersPaginated } from '@/lib/api';
 import { Filters } from '@/lib/types';
 import css from './page.module.css';
+import CamperCardSkeleton from '@/components/CamperCardSkeleton/CamperCardSkeleton';
 
 export default function CatalogPage() {
   const campers = useCampersStore(s => s.campers);
@@ -80,10 +81,17 @@ export default function CatalogPage() {
       <div className={css.wrapper}>
         <FiltersPanel initial={filters} onApply={onApplyFilters} />
         <section>
+          {loadingInitial &&
+            Array.from({ length: 4 }).map((_, i) => (
+              <CamperCardSkeleton key={`skeleton-${i}`} />
+            ))}
+
           {campers.length === 0 && !loadingInitial && <p>No results</p>}
-          {campers.map(camper => (
-            <CamperCard key={camper.id} camper={camper} />
-          ))}
+
+          {!loadingInitial &&
+            campers.map(camper => (
+              <CamperCard key={camper.id} camper={camper} />
+            ))}
         </section>
       </div>
 
