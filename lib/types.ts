@@ -50,15 +50,15 @@ export interface Filters {
   AC?: boolean;
   kitchen?: boolean;
   bathroom?: boolean;
-  TV: boolean;
+  TV?: boolean;
 
   name?: string;
   description?: string;
   rating?: number;
-  price: number;
+  price?: number;
 
-  transmission: string;
-  engine: string;
+  transmission?: string;
+  engine?: string;
 }
 
 export interface BookingFormData {

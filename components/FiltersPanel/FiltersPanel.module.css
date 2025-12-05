@@ -115,7 +115,7 @@
 .buttons {
   display: flex;
   gap: 16px;
-  flex-direction: column;
+  flex-direction: row;
   padding: 8px;
 }
 

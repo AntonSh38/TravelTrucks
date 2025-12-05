@@ -23,10 +23,21 @@ export const useCampersStore = create<CampersState>(set => ({
   filters: {} as Filters,
   page: 1,
   limit: 4,
+
   setCampers: (c, total) => set({ campers: c, total }),
-  appendCampers: c => set(s => ({ campers: [...s.campers, ...c] })),
+
+  appendCampers: newCampers =>
+    set(state => {
+      const existing = new Set(state.campers.map(c => c.id));
+      const unique = newCampers.filter(c => !existing.has(c.id));
+
+      return { campers: [...state.campers, ...unique] };
+    }),
+
   resetCampers: () => set({ campers: [], total: 0 }),
+
   setFilters: f => set({ filters: f }),
   resetFilters: () => set({ filters: {} as Filters }),
+
   setPage: p => set({ page: p }),
 }));

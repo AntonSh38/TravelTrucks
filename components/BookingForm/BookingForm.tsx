@@ -25,7 +25,6 @@ export default function BookingForm({ camperId }: Props) {
   const bookingData = useBookingStore(state => state.forms[camperId]);
   const setField = useBookingStore(state => state.setField);
   const resetFormStore = useBookingStore(state => state.resetForm);
-  // const [date, setDate] = useState<Date | null>(null);
 
   const schema = Yup.object({
     name: Yup.string().required('Required'),

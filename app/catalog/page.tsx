@@ -34,13 +34,11 @@ export default function CatalogPage() {
       }
 
       try {
-        const params = {
-          page,
-          limit,
-          ...filters,
-        };
+        const params = { page, limit, ...filters };
         const { items, total } = await getCampersPaginated(params);
+
         if (cancelled) return;
+
         if (page === 1) {
           setCampers(items, total);
         } else {
