@@ -23,11 +23,11 @@ export const metadata: Metadata = {
     description:
       'Find the perfect camper. Filters, favorites, booking — all in one place.',
 
-    url: 'https://your-domain.com',
+    url: 'https://travel-trucks-gules-nine.vercel.app/',
     siteName: 'TravelTrucks',
     images: [
       {
-        url: 'https://your-domain.com/og-image.jpg',
+        url: 'https://travel-trucks-gules-nine.vercel.app/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'TravelTrucks Camper Catalog',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'TravelTrucks — Camper Rental',
     description: 'Find the perfect camper.',
-    images: ['https://your-domain.com/og-image.jpg'],
+    images: ['https://travel-trucks-gules-nine.vercel.app/og-image.jpg'],
   },
 };
 
