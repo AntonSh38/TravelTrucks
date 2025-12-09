@@ -12,10 +12,35 @@ const interFont = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'TravelTrucks',
-  description: 'Camper rental platform',
+  title: 'TravelTrucks — Camper Rental',
+  description:
+    'Browse and rent campers with filters, pagination, and detailed pages.',
   icons: {
     icon: '/favicon.svg',
+  },
+  openGraph: {
+    title: 'TravelTrucks — Camper Rental',
+    description:
+      'Find the perfect camper. Filters, favorites, booking — all in one place.',
+
+    url: 'https://your-domain.com',
+    siteName: 'TravelTrucks',
+    images: [
+      {
+        url: 'https://your-domain.com/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'TravelTrucks Camper Catalog',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'TravelTrucks — Camper Rental',
+    description: 'Find the perfect camper.',
+    images: ['https://your-domain.com/og-image.jpg'],
   },
 };
 
